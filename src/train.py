@@ -68,5 +68,11 @@ for x in range(10):
         print("    R2: %s" % r2)
 
         # TODO: log the two experiment params and the three evaluation metrics using mlflow
+        mlflow.log_param("alpha", alpha)
+        mlflow.log_param("l1_ratio", l1_ratio)
+        mlflow.log_metric("rmse", rmse)
+        mlflow.log_metric("mae", mae)
+        mlflow.log_metric("r2", r2)
 
         # TODO: store the model using mlflow
+        mlflow.sklearn.log_model(lr, "model")
